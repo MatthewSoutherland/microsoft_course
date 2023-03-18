@@ -1,13 +1,11 @@
 ﻿using System;
 
-for (int i = 1; i <= 100; i++)
+Random random = new Random();
+int current = 0;
+
+do
 {
-    if (i % 3 == 0 && i % 5 == 0)
-        Console.WriteLine($"{i} FizzBuss");
-    else if (i % 3 == 0)
-        Console.WriteLine($"{i} Fizz");
-    else if (i % 5 == 0)
-        Console.WriteLine($"{i} Buzz");
-    else
-        Console.WriteLine(i);
-}
+    current = random.Next(1, 11);
+    Console.WriteLine(current);
+} while (current != 7);
+
