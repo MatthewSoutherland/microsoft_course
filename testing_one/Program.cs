@@ -34,16 +34,7 @@ string currentStudentLetterGrade = "";
 
 // display the header row for scores/grades
 Console.Clear();
-Console.WriteLine("Student\t\tGrade\tLetter Grade\n");
-
-/*
-The outer foreach loop is used to:
-- iterate through student names 
-- assign a student's grades to the studentScores array
-- sum assignment scores (inner foreach loop)
-- calculate numeric and letter grade
-- write the score report information
-*/
+Console.WriteLine("Student\t\tExam score\tOverall\t\tGrade\t\tExtra credit\n");
 foreach (string name in studentNames)
 {
     string currentStudent = name;
@@ -61,10 +52,13 @@ foreach (string name in studentNames)
         studentScores = loganScores;
 
     int sumAssignmentScores = 0;
-
     decimal currentStudentGrade = 0;
-
     int gradedAssignments = 0;
+    decimal examScore = 0;
+    int sumExtraCredit = 0;
+    decimal extraCredit = 0.0m;
+    int extraCreditCounter = 0;
+    int averageExtraCredit = 0;
 
     /* 
     the inner foreach loop sums assignment scores
@@ -75,13 +69,19 @@ foreach (string name in studentNames)
         gradedAssignments += 1;
 
         if (gradedAssignments <= examAssignments)
+        {
             sumAssignmentScores += score;
-
+        }
         else
-            sumAssignmentScores += score / 10;
+        {
+            extraCreditCounter++;
+            sumExtraCredit += score;
+        }
     }
-
-    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments;
+    extraCredit = (decimal)sumExtraCredit / 10 / examAssignments;
+    averageExtraCredit = sumExtraCredit / extraCreditCounter;
+    examScore = (decimal)(sumAssignmentScores) / examAssignments;
+    currentStudentGrade = (decimal)(sumAssignmentScores) / examAssignments + extraCredit;
 
     if (currentStudentGrade >= 97)
         currentStudentLetterGrade = "A+";
@@ -125,9 +125,16 @@ foreach (string name in studentNames)
     // Student         Grade
     // Sophia:         92.2    A-
 
-    Console.WriteLine($"{currentStudent}\t\t{currentStudentGrade}\t{currentStudentLetterGrade}");
+    Console.WriteLine($"{currentStudent}\t\t{examScore}\t\t{currentStudentGrade}\t\t{currentStudentLetterGrade}\t\t{averageExtraCredit} ({extraCredit} pts)");
 }
+/*
+Student         Exam Score      Overall Grade   Extra Credit
 
+Sophia          92.2            95.88   A       92 (3.68 pts)
+Andrew          89.6            91.38   A-      89 (1.78 pts)
+Emma            85.6            90.94   A-      89 (5.34 pts)
+Logan           91.2            93.12   A       96 (1.92 pts)
+*/
 // required for running in VS Code (keeps the Output windows open to view results)
 Console.WriteLine("\n\rPress the Enter key to continue");
 Console.ReadLine();
