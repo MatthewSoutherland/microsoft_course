@@ -245,7 +245,6 @@ do
                     } while (anotherPet != "y" && anotherPet != "n");
                 }
             }
-
             if (petCount >= maxPets)
             {
                 Console.WriteLine("We have reached our limit on the number of pets that we can manage.");
