@@ -272,15 +272,39 @@ do
                         {
                             if (ourAnimals[i, 2] == "Age: " || ourAnimals[i, 2].Contains("?"))
                             {
-                                Console.WriteLine($"This animal: {ourAnimals[i, 0]} is missing an age. Please assign one!");
-                                readResult = Console.ReadLine();
-                                ourAnimals[i, 2] = "Age: " + readResult;
+                                int result;
+                                do
+                                {
+                                    Console.WriteLine($"Enter an age for {ourAnimals[i, 0]}!");
+                                    readResult = Console.ReadLine();
+                                    if (int.TryParse(readResult, out result))
+                                    {
+                                        ourAnimals[i, 2] = "Age: " + readResult;
+                                        Console.WriteLine($"if true {result}");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine(" ");
+                                    }
+                                } while (!int.TryParse(readResult, out result));
+
                             }
                             if (ourAnimals[i, 4] == "Physical description: " || ourAnimals[i, 4].Contains("?"))
                             {
-                                Console.WriteLine($"This animal: {ourAnimals[i, 0]} is missing a physical description. Please assign one!");
-                                readResult = Console.ReadLine();
-                                ourAnimals[i, 4] = "Physical description: " + readResult;
+                                do
+                                {
+                                    Console.WriteLine($"Enter a physical description for {ourAnimals[i, 0]} (size, color, breed, gender, weight, housebroken)");
+                                    readResult = Console.ReadLine();
+                                    if (!string.IsNullOrEmpty(readResult))
+                                    {
+                                        ourAnimals[i, 4] = "Physical description: " + readResult;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine(" ");
+                                    }
+
+                                } while (string.IsNullOrEmpty(readResult));
                             }
                         }
                     }
@@ -300,7 +324,51 @@ do
             break;
 
         case "4":
-            Console.WriteLine("age, nickname");
+            bool validEntryThree = true;
+            do
+            {
+                for (int i = 0; i < maxPets; i++)
+                {
+                    if (ourAnimals[i, 0] != "ID #: ")
+                    {
+                        if (ourAnimals[i, 3] == "Nickname: " || ourAnimals[i, 3].Contains("?"))
+                        {
+                            do
+                            {
+                                Console.WriteLine($"Enter a nickname for {ourAnimals[i, 0]}.");
+                                readResult = Console.ReadLine();
+                                if (!string.IsNullOrEmpty(readResult))
+                                {
+                                    ourAnimals[i, 3] = "Nickname: " + readResult;
+                                }
+                                else
+                                {
+                                    Console.WriteLine(" ");
+                                }
+
+                            } while (string.IsNullOrEmpty(readResult));
+                        }
+                        if (ourAnimals[i, 5] == "Personality: " || ourAnimals[i, 5].Contains("?"))
+                        {
+                            do
+                            {
+                                Console.WriteLine($"Enter a personality description for {ourAnimals[i, 0]} (likes or dislikes, tricks, energy level),");
+                                readResult = Console.ReadLine();
+                                if (!string.IsNullOrEmpty(readResult))
+                                {
+                                    ourAnimals[i, 5] = "Personality: " + readResult;
+                                }
+                                else
+                                {
+                                    Console.WriteLine(" ");
+                                }
+
+                            } while (string.IsNullOrEmpty(readResult));
+                        }
+                    }
+                }
+            } while (validEntryThree == false);
+            Console.WriteLine("Should be all set.");
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
