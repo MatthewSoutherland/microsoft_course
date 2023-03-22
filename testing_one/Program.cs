@@ -251,15 +251,54 @@ do
                 Console.WriteLine("Press the Enter key to continue.");
                 readResult = Console.ReadLine();
             }
+
             break;
         case "3":
-            foreach (string pet in ourAnimals)
+
+            bool validEntryTwo = false;
+            do
             {
-                Console.WriteLine($"Pet: {pet}");
-            }
+                Console.WriteLine("Would you like to update any of these animals - age or physical descriptions? If they are missing!");
+                Console.WriteLine("(y)Yes, (n)No");
+                readResult = Console.ReadLine();
+
+                if (readResult == "y" || readResult == "Y")
+                {
+                    validEntryTwo = true;
+
+                    for (int i = 0; i < maxPets; i++)
+                    {
+                        if (ourAnimals[i, 0] != "ID #: ")
+                        {
+                            if (ourAnimals[i, 2] == "Age: " || ourAnimals[i, 2].Contains("?"))
+                            {
+                                Console.WriteLine($"This animal: {ourAnimals[i, 0]} is missing an age. Please assign one!");
+                                readResult = Console.ReadLine();
+                                ourAnimals[i, 2] = "Age: " + readResult;
+                            }
+                            if (ourAnimals[i, 4] == "Physical description: " || ourAnimals[i, 4].Contains("?"))
+                            {
+                                Console.WriteLine($"This animal: {ourAnimals[i, 0]} is missing a physical description. Please assign one!");
+                                readResult = Console.ReadLine();
+                                ourAnimals[i, 4] = "Physical description: " + readResult;
+                            }
+                        }
+                    }
+                }
+                else if (readResult == "n" || readResult == "N")
+                {
+                    validEntryTwo = true;
+                }
+                else
+                {
+                    validEntryTwo = false;
+                }
+            } while (validEntryTwo == false);
+
             Console.WriteLine("Press the Enter key to continue.");
             readResult = Console.ReadLine();
             break;
+
         case "4":
             Console.WriteLine("age, nickname");
             Console.WriteLine("Press the Enter key to continue.");
