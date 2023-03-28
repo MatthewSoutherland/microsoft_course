@@ -17,3 +17,5 @@ static bool Check(object[] a, object x)
     return false;
 }
 Console.WriteLine(Check(new object[] { 80, 117, 115, 104, 45, 85, 112, 115 }, 45));
+
+// return a.Contains(x);
