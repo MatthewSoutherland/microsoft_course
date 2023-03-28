@@ -1,21 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 
-/* Implement a function that accepts 3 integer values a, b, c. The function should 
-return true if a triangle can be built with the sides of given length and false in 
-any other case. public static bool IsTriangle(int a, int b, int c) */
+/* You need to round the answer to 2 decimal places and return it as String.
+If the given value is 0 then it should return 0.00
+You will only be given Natural Numbers as arguments. */
 
-static bool IsTriangle(int a, int b, int c)
+static string seriesSum(int n)
 {
-    // Check if the sum of any two sides is greater than the third side
-    if (a + b > c && a + c > b && b + c > a)
+    if (n.ToString() == "0")
     {
-        // If so, the sides can form a triangle
-        return true;
+        return "0.00";
     }
     else
     {
-        // Otherwise, the sides cannot form a triangle
-        return false;
+        return "0.00";
     }
 }
-Console.WriteLine(IsTriangle(5, 7, 10));
+Console.WriteLine(seriesSum(0));
