@@ -4,18 +4,7 @@
 whether the provided array contains the value. Array can contain numbers or 
 strings. X can be either. Return true if the array contains the value, false if not.*/
 
-static bool Check(object[] a, object x)
+public static string ReverseWords(string str)
 {
-    foreach (object element in a)
-    {
-        Console.WriteLine(element);
-        if (element.Equals(x))
-        {
-            return true;
-        }
-    }
-    return false;
+    //Write your code here
 }
-Console.WriteLine(Check(new object[] { 80, 117, 115, 104, 45, 85, 112, 115 }, 45));
-
-// return a.Contains(x);
