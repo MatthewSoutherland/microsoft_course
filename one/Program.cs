@@ -13,4 +13,5 @@ static int nLogN(int n)
     }
     return 0;
 }
+
 nLogN(32);
