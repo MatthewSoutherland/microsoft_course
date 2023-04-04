@@ -1,17 +1,7 @@
 ﻿using System;
+var s = new Student();
+var cal = new Student.calculateHandler(s.Add);
+s.calculate(10, 5, cal);
 
-static int nLogN(int n)
-{
-    int y = n;
-    while (n > 1)
-    {
-        n = n / 2;
-        for (var i = 1; i <= y; i++)
-        {
-            Console.WriteLine(i);
-        }
-    }
-    return 0;
-}
-
-nLogN(32);
+var t = new StudentMath();
+t.Add(10, 5);
