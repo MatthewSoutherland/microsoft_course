@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 
+// A Queue is first in first out
 var myQueue = new Queue();
 myQueue.Enqueue("first");
 myQueue.Enqueue("secode");
