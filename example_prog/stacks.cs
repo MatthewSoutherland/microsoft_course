@@ -2,6 +2,7 @@
 using System.Collections;
 
 // last in last out
+// good example of when to use a stack is undo
 var myStack = new Stack();
 myStack.Push(1);
 myStack.Push(2);
