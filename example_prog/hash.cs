@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 
+// SortedList and Hashtable both work the same
+// var hashtable = new SortedList();
 Hashtable hashtable = new Hashtable();
 hashtable.Add("key1", "value1");
 hashtable.Add("key2", "value2");
