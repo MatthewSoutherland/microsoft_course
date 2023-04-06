@@ -80,5 +80,6 @@ namespace testing_one
             this.Date = date;
             this.Notes = note;
         }
+
     }
 }
