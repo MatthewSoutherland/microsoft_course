@@ -68,6 +68,7 @@ namespace testing_one
             return report.ToString();
         }
     }
+    
     public class Transaction
     {
         public decimal Amount { get; }
