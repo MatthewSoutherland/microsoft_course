@@ -21,3 +21,5 @@ static IEnumerable<string> OpenOrSenior(int[][] data)
 var guy = OpenOrSenior(new[] { new[] { 45, 12 }, new[] { 55, 21 }, new[] { 19, 2 }, new[] { 104, 20 } });
 string myString = String.Join(" ", guy);
 Console.WriteLine(myString);
+
+// return data.Select(member => member[0] >= 55 && member[1] > 7 ? "Senior" : "Open").ToList();
