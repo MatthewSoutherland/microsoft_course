@@ -1,10 +1,18 @@
 ﻿using System;
+using System.Linq;
 
-// Remove Exclamation marks
+// Return min and max of an array
 
-static string RemoveExclamationMarks(string s)
+static int[] minMax(int[] lst)
 {
-    return s.Replace("!", "");
+    int[] newList = new int[2];
+    newList[0] = lst.Min();
+    newList[1] = lst.Max();
+    return newList;
 }
+var guy = minMax(new int[5] { 1, 2, 3, 4, 5 });
+string myString = String.Join(" ", guy);
+Console.WriteLine(myString);
 
-Console.WriteLine(RemoveExclamationMarks("hello!"));
+// return new int[] {lst.Min(), lst.Max()};
+// return new int[] { lst.Min(), lst.Max() };
