@@ -1,32 +1,22 @@
 ﻿using System;
-using System.Linq;
-using System.Collections;
 
-/*Complete the solution so that the function will break up camel casing, using a space between words.
-Example
-"camelCasing"  =>  "camel Casing"
- */
 
-static string BreakCamelCase(string str)
+static string SwitchItUp(int number)
 {
-    string message = "";
-    foreach (char letter in str)
+    switch (number)
     {
-        if (char.IsUpper(letter))
-        {
-            message = message + " " + letter;
-        }
-        else
-        {
-            message += letter;
-        }
-    }
-    return message;
+        case 1: "One";
+        case 2: "Two";
+        case 3: "Three";
+        case 4: "Four";
+        case 5: "Five";
+        case 6: "Six";
+        case 7: "Seven";
+        case 8: "Eight";
+        case 9: "Nine";
+        default: "Zero";
+    };
+    return number;
 }
-string result = BreakCamelCase("helloMyNameIs").ToString();
+var result = SwitchItUp(1);
 Console.WriteLine(result);
-
-// public static string BreakCamelCase(string str) =>
-// new Regex("([A-Z])").Replace(str, " $1");
-
-// return string.Concat(str.Select(c => Char.IsUpper(c) ? " " + c : c.ToString()));
